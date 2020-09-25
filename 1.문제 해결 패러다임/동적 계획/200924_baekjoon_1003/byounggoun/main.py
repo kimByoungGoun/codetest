@@ -3,16 +3,18 @@ zero = 0
 one  = 0
 
 def fibonacci(n):
+    tmp = 0
+    result = 1
     if(n == 0):
-        global zero
-        zero = zero + 1
         return 0
     elif(n == 1):
-        global one
-        one = one + 1
         return 1
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        for i in range(n-1):
+            result = result + tmp
+            tmp = result - tmp
+            
+        return result
 
 
 
@@ -21,10 +23,14 @@ if __name__ == "__main__":
     for i in range(int(rl)):
         tmp = sys.stdin.readline()
         num = int(tmp)
-        fibonacci(num)
+        if num >= 1:
+            zero = fibonacci(num -1)
+            one = fibonacci(num)
+        else:
+            zero = 1
+            one  = 0
         print(str(zero) + " " + str(one))
-        zero = 0
-        one = 0
+
 
 
             
