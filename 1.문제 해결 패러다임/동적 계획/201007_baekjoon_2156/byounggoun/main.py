@@ -1,9 +1,15 @@
 import sys
-def max(a, b):
+def max_3(a, b,c):
     if(a > b):
-        return a
+        if a > c:
+            return a
+        else:
+            return c
     else:
-        return b
+        if b > c:
+            return b
+        else:
+            return c
 
 if __name__ == "__main__":
     dp_list = list()
@@ -18,13 +24,10 @@ if __name__ == "__main__":
     if count > 1:
         dp_list.append(input_list[0] + input_list[1])#1
     if count > 2:
-        if input_list[0] > input_list[1]:#2
-            dp_list.append(input_list[0] + input_list[2])
-        else:
-            dp_list.append(input_list[1] + input_list[2])
+        dp_list.append(max_3(input_list[0] + input_list[1], input_list[0] + input_list[2], input_list[1]+input_list[2]))#2
 
     for i in range(3,count):
-        dp_list.append(max(dp_list[i - 2] + input_list[i], input_list[i-1] + dp_list[i - 3]+ input_list[i]))
+        dp_list.append(max_3(dp_list[i - 2] + input_list[i], input_list[i-1] + dp_list[i - 3]+ input_list[i], dp_list[i-1]))
 
     print(dp_list[-1])
     
