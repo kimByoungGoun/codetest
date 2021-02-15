@@ -47,7 +47,7 @@ int main()
 			{
 				for (int l = 0; l < 8; l++)//한 판 시도 내에서 가로 진행
 				{
-					if (chess[i + k][j + l] == (i + k + j + l)%2)
+					if (chess[i + k][j + l] == (i + k + j + l)%2)//가로세로축 합이 홀수인 칸일 경우 흰색(1)이어야 한다
 					{
 
 					}
@@ -58,12 +58,12 @@ int main()
 				}
 			}
 			result = min(result, white_start_count);
-			int black_start_count = 0;//이번 판에서 흰색으로 시작 할 경우 고쳐야 하는 횟수
+			int black_start_count = 0;//이번 판에서 검은색으로 시작 할 경우 고쳐야 하는 횟수
 			for (int k = 0; k < 8; k++)//한 판 시도 내에서 세로 진행
 			{
 				for (int l = 0; l < 8; l++)//한 판 시도 내에서 가로 진행
 				{
-					if (chess[i + k][j + l] == (i + k + j + l) % 2)
+					if (chess[i + k][j + l] == (i + k + j + l) % 2)//가로세로축 합이 짝수인 칸일 경우 흑색(0)이어야 한다
 					{
 						black_start_count++;
 					}
