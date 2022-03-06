@@ -1,0 +1,14 @@
+완전히 채울 수 있는 칸 수는 2칸, 4칸이며 각각 2가지 방법이 있다.
+따라서 채울 수 있는 방법의 수 리스트 dp_list를 만들 때
+dp_list[N] = dp_list[N-2]*2 + dp_list[N-4]*2 이다.
+이를 점화식으로, 초기값을 dp_list[0,2,0,2] 로 설정하여 문제를 푼다.
+
+def calc(N):
+   dp_list[0,2,0,2]
+   for i in range(4,N)
+      dp_list.append(dp_list[i-2]*2 + dp_list[i-4]*2)
+    return dp_list[N-1]
+main
+    print calc(N)
+
+시간복잡도는 N-4 회만큼 곱셈 두번,덧셈 한번을 수행하므로 O(N)이 될 것이다.
